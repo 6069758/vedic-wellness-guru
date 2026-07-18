@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-cinzel: "Cinzel";
+  --font-lato: "Lato";
+  --font-caveat: "Caveat";
+  --font-gincu: "Gincu";
+  --font-playfair: "Playfair Display";
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background: #f7f6f1;
+  color: #151310;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Lenis smooth scroll */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* Prevent flash-of-unstyled content before GSAP sets initial states.
+   Elements opt-in with the .anim-hidden class; GSAP clears it on mount. */
+.anim-hidden {
+  visibility: hidden;
+}
+
+::selection {
+  background: #c8912e;
+  color: #f7f6f1;
+}
+
+/* ===== Floating glass capsule navbar (matches the reference exactly) ===== */
+.nav-wrap {
+  position: fixed;
+  top: 24px;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+.nav-wrap > * {
+  pointer-events: auto;
+}
+.glass-nav {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 59px;
+  padding: 0 23px;
+  border-radius: 19px;
+  cursor: pointer;
+  background: linear-gradient(180deg, rgba(40, 28, 14, 0.72), rgba(20, 13, 6, 0.78));
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 225, 160, 0.14),
+    inset 0 0 26px rgba(201, 149, 61, 0.1),
+    0 12px 40px rgba(0, 0, 0, 0.45),
+    0 0 22px rgba(201, 149, 61, 0.1);
+}
+.nav-item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 9px 17px;
+  margin: 0 2px;
+  font-size: 14.2px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+  color: #f5ead6;
+  border-radius: 999px;
+  cursor: pointer;
+  -webkit-font-smoothing: antialiased;
+  transition: color 300ms ease, transform 300ms ease, text-shadow 300ms ease;
+}
+.nav-item:hover {
+  color: #e9c877;
+  transform: translateY(-2px);
+  text-shadow: 0 0 14px rgba(233, 200, 119, 0.55);
+}
+.nav-item.active {
+  color: #2a1c08;
+  font-weight: 700;
+  background: linear-gradient(180deg, #f3d488 0%, #d4a24c 55%, #b9821f 100%);
+  padding: 8px 18px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 225, 150, 0.55);
+  box-shadow:
+    inset 0 1px 1px rgba(255, 245, 210, 0.7),
+    inset 0 -2px 6px rgba(120, 80, 20, 0.35),
+    0 0 10px rgba(233, 200, 119, 0.55),
+    0 0 22px rgba(201, 149, 61, 0.45);
+}
+.nav-item.active:hover {
+  color: #2a1c08;
+  transform: translateY(-2px);
+  text-shadow: none;
+}
+.nav-extra-wrap {
+  flex: 0 0 auto;
+  min-width: 0;
+  overflow: hidden;
+}
+.nav-extra-inner {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  width: max-content;
+}
+
+/* Thin luxury scrollbar */
+::-webkit-scrollbar {
+  width: 9px;
+}
+::-webkit-scrollbar-track {
+  background: #efede3;
+}
+::-webkit-scrollbar-thumb {
+  background: #c8b98f;
+  border-radius: 999px;
+}
+
+/* SplitType line/char wrappers must clip for reveal masks */
+.split-line {
+  overflow: hidden;
+  display: block;
+}
+.reduce-motion * {
+  animation: none !important;
+  transition: none !important;
+}

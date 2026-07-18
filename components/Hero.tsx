@@ -1,0 +1,131 @@
+import Image from "next/image";
+import { ChevronDown } from "lucide-react";
+
+// Deterministic particle field (no Math.random → no hydration mismatch)
+const PARTICLES = Array.from({ length: 22 }).map((_, i) => {
+  const left = (i * 37) % 100;
+  const top = (i * 53 + 11) % 100;
+  const size = 2 + ((i * 7) % 4);
+  const dur = 6 + ((i * 13) % 9);
+  const delay = (i % 8) * 0.6;
+  return { left, top, size, dur, delay, id: i };
+});
+
+/**
+ * HERO scene (Slide 1) — matches the premium reference.
+ * Provided golden backdrop + astrologer (guru-golden.png) kept untouched; a
+ * warm-glass copy card sits on the right. Cinzel headings, Lato body, Caveat
+ * signature. Ambient glow + floating particles layered on top of the image.
+ * All `hero-*` / `.reveal-line` classes are hooks for the load timeline.
+ */
+export default function Hero() {
+  return (
+    <div className="scene-hero absolute inset-0 z-20 h-full w-full overflow-hidden bg-[#241708]">
+      {/* Provided background image (untouched) — astrologer on the left */}
+      <div className="hero-bg absolute inset-0 will-change-transform">
+        <Image
+          src="/images/guru-golden.png"
+          alt="Gaurav Vadehra — astrologer"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+      </div>
+
+      {/* Ambient warm glow */}
+      <div
+        className="hero-glow pointer-events-none absolute inset-0 mix-blend-screen"
+        style={{
+          background:
+            "radial-gradient(45% 55% at 30% 42%, rgba(255,200,120,0.28), transparent 70%), radial-gradient(40% 40% at 78% 30%, rgba(255,170,80,0.18), transparent 70%)",
+        }}
+      />
+
+      {/* Floating particles */}
+      <div className="hero-particles pointer-events-none absolute inset-0">
+        {PARTICLES.map((p) => (
+          <span
+            key={p.id}
+            className="particle absolute rounded-full bg-amber-200/70"
+            style={{
+              left: `${p.left}%`,
+              top: `${p.top}%`,
+              width: p.size,
+              height: p.size,
+              boxShadow: "0 0 8px 2px rgba(255,210,140,0.5)",
+            }}
+            data-dur={p.dur}
+            data-delay={p.delay}
+          />
+        ))}
+      </div>
+
+      {/* Handwritten signature over the vest */}
+      <div className="hero-name pointer-events-none absolute bottom-[16%] left-[14%] -rotate-[7deg] text-center leading-[0.9]">
+        <span className="block font-sign text-5xl text-cream drop-shadow-[0_2px_10px_rgba(0,0,0,0.7)] sm:text-6xl">
+          Shree Gaurav
+        </span>
+        <span className="mt-1 block font-sign text-5xl text-cream drop-shadow-[0_2px_10px_rgba(0,0,0,0.7)] sm:text-6xl">
+          Astro
+        </span>
+      </div>
+
+      {/* Copy card (right) */}
+      <div className="relative z-30 grid h-full grid-cols-1 items-center lg:grid-cols-[45%_55%]">
+        <div className="hidden lg:block" />
+        <div className="flex items-center px-6 sm:px-10 lg:pr-16">
+          <div
+            className="hero-copy w-full rounded-[34px] border border-[#e0b95f]/30 p-8 text-center shadow-[0_45px_110px_-35px_rgba(0,0,0,0.85)] backdrop-blur-md sm:p-11 lg:p-14"
+            style={{
+              background:
+                "linear-gradient(180deg, rgba(46,31,16,0.68) 0%, rgba(34,22,11,0.66) 100%)",
+            }}
+          >
+            <h1 className="hero-title font-serif text-cream">
+              <span className="reveal-line block overflow-hidden">
+                <span className="reveal-inner block text-[clamp(1.9rem,3.6vw,3.3rem)] font-bold leading-[1.1] tracking-tight">
+                  Three Decades of Consultancy
+                </span>
+              </span>
+              <span className="reveal-line mt-1 block overflow-hidden">
+                <span className="reveal-inner block font-accent text-[clamp(1.2rem,2vw,1.7rem)] font-medium italic text-gold-soft">
+                  in
+                </span>
+              </span>
+              <span className="reveal-line block overflow-hidden">
+                <span className="reveal-inner block text-[clamp(1.6rem,3vw,2.8rem)] font-semibold leading-tight tracking-tight text-gold-soft">
+                  Astrology-Vastu-Meditation
+                </span>
+              </span>
+            </h1>
+
+            <p className="hero-body mx-auto mt-7 max-w-[600px] font-sans text-[15px] leading-relaxed text-cream/85">
+              Decades of proven expertise, experience never-before Astrology -
+              Vastu consultations &amp; Meditation Sessions designed to solve
+              real-life challenges in career, relationships, finances and health.
+              Regain clarity through deep knowledge and achieve confidence through
+              practical, result-oriented strategies.
+            </p>
+
+            <p className="hero-tagline mt-7 font-accent text-[clamp(1rem,1.6vw,1.35rem)] italic leading-snug text-gold-soft">
+              “When the right decision matters, guesswork is not an option.”
+            </p>
+
+            <a
+              href="#"
+              className="hero-cta mt-9 inline-flex items-center rounded-full bg-gradient-to-b from-[#f3ead2] to-[#e2cfa4] px-9 py-3.5 font-sans text-[13.5px] font-semibold tracking-wide text-[#3a2a12] shadow-[0_16px_40px_-16px_rgba(0,0,0,0.7)] transition-shadow duration-300 hover:shadow-[0_20px_50px_-14px_rgba(243,234,210,0.7)]"
+            >
+              Request Personal Consultation
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div className="scroll-cue absolute bottom-6 left-1/2 z-30 flex -translate-x-1/2 flex-col items-center gap-2 text-cream/70">
+        <span className="font-sans text-[10px] font-semibold tracking-kicker">SCROLL</span>
+        <ChevronDown className="h-4 w-4 animate-bounce" />
+      </div>
+    </div>
+  );
+}
