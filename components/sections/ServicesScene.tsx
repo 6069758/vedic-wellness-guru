@@ -33,7 +33,13 @@ export default function ServicesScene() {
               key={s.title}
               className={`svc-card-${i + 1} group flex flex-col overflow-hidden rounded-3xl border border-gold/15 bg-white/75 shadow-[0_22px_60px_-34px_rgba(120,90,30,0.6)] backdrop-blur-sm transition-shadow duration-500 hover:shadow-[0_30px_64px_-30px_rgba(120,90,30,0.85)]`}
             >
-              <Placeholder file={s.file} label={s.title} ratio="4 / 3" rounded="rounded-none" />
+              <Placeholder
+                file={s.file}
+                label={s.title}
+                ratio="4 / 3"
+                rounded="rounded-none"
+                imgClassName="object-cover transition-transform duration-[900ms] ease-out group-hover:scale-110"
+              />
               <div className="flex flex-1 flex-col p-6">
                 <h3 className="font-serif text-lg font-semibold text-ink">{s.title}</h3>
                 <p className="mt-3 flex-1 text-[13px] leading-relaxed text-ink-soft/80">{s.desc}</p>

@@ -20,9 +20,9 @@ export function buildHeroTimeline(scope: HTMLElement) {
   const q = gsap.utils.selector(scope);
 
   // initial states
-  // background waits ABOVE and drops down into place; glass card waits to the
-  // RIGHT and slides in — both fading in (exactly as requested).
-  gsap.set(q(".hero-bg"), { opacity: 0, yPercent: -16, scale: 1.05 });
+  // background waits ABOVE and drops straight down into place; glass card waits
+  // to the RIGHT and slides in — both fading in (exactly as requested).
+  gsap.set(q(".hero-bg"), { opacity: 0, yPercent: -26, scale: 1 });
   gsap.set(q(".hero-glow"), { opacity: 0 });
   gsap.set(q(".hero-name"), { opacity: 0, y: 24, rotate: -12 });
   gsap.set(q(".hero-copy"), { opacity: 0, x: 170, scale: 0.98 });

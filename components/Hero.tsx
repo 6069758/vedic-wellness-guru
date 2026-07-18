@@ -33,6 +33,10 @@ export default function Hero() {
         />
       </div>
 
+      {/* Uniform darkening so the golden backdrop reads a touch darker */}
+      <div className="pointer-events-none absolute inset-0 bg-[#120a02]/42" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-l from-black/55 via-transparent to-black/25" />
+
       {/* Ambient warm glow */}
       <div
         className="hero-glow pointer-events-none absolute inset-0 mix-blend-screen"
