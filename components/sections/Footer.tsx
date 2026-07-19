@@ -13,7 +13,19 @@ export default function Footer() {
           <circle cx="30" cy="15" r="6" stroke="#C8912E" strokeWidth="1.2" />
           {Array.from({ length: 12 }).map((_, i) => {
             const a = (i * Math.PI) / 6;
-            return <line key={i} x1={30 + Math.cos(a) * 9} y1={15 + Math.sin(a) * 9} x2={30 + Math.cos(a) * 13} y2={15 + Math.sin(a) * 13} stroke="#C8912E" strokeWidth="1" />;
+            // round to a fixed precision so SSR and client markup match exactly
+            const r = (n: number) => (Math.round(n * 1000) / 1000).toString();
+            return (
+              <line
+                key={i}
+                x1={r(30 + Math.cos(a) * 9)}
+                y1={r(15 + Math.sin(a) * 9)}
+                x2={r(30 + Math.cos(a) * 13)}
+                y2={r(15 + Math.sin(a) * 13)}
+                stroke="#C8912E"
+                strokeWidth="1"
+              />
+            );
           })}
           <line x1="0" y1="15" x2="17" y2="15" stroke="#C8912E" strokeWidth="1" opacity="0.5" />
           <line x1="43" y1="15" x2="60" y2="15" stroke="#C8912E" strokeWidth="1" opacity="0.5" />

@@ -65,12 +65,12 @@ export default function Hero() {
           ))}
         </div>
 
-        {/* Handwritten signature (Gincu) over the vest */}
-        <div className="hero-name pointer-events-none absolute bottom-[15%] left-[13%] -rotate-[7deg] text-center leading-[0.9]">
-          <span className="block font-sign text-4xl text-cream drop-shadow-[0_2px_10px_rgba(0,0,0,0.7)] sm:text-5xl">
+        {/* Handwritten signature (Gincu) centred over the vest */}
+        <div className="hero-name pointer-events-none absolute bottom-[13%] left-[3%] -rotate-[5deg] text-center leading-[0.95]">
+          <span className="block font-sign text-5xl text-cream drop-shadow-[0_2px_12px_rgba(0,0,0,0.75)] sm:text-[64px]">
             Shree Gaurav
           </span>
-          <span className="mt-1 block font-sign text-4xl text-cream drop-shadow-[0_2px_10px_rgba(0,0,0,0.7)] sm:text-5xl">
+          <span className="mt-1 block font-sign text-5xl text-cream drop-shadow-[0_2px_12px_rgba(0,0,0,0.75)] sm:text-[64px]">
             Astro
           </span>
         </div>

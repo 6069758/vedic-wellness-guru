@@ -7,7 +7,7 @@ import { useLenis } from "@/hooks/useLenis";
 import { useIsomorphicLayoutEffect } from "@/hooks/useIsomorphicLayoutEffect";
 import { buildHeroTimeline } from "@/animations/heroTimeline";
 import { buildCinematic } from "@/animations/cinematic";
-import { buildIpsTimeline } from "@/animations/ipsTimeline";
+import { buildIpsCinematic } from "@/animations/ipsCinematic";
 import { setupReveals } from "@/animations/reveals";
 
 import Navbar from "./Navbar";
@@ -53,14 +53,8 @@ export default function Experience() {
           // 2. CINEMATIC STAGE — pinned Hero → Services crossfade + card choreography
           const cineTl = buildCinematic(root, stage);
 
-          // 3. IPS builds — unchanged sequence, played once when its section arrives
-          const ipsTl = buildIpsTimeline(root);
-          ScrollTrigger.create({
-            trigger: ipsSection,
-            start: "top 60%",
-            once: true,
-            onEnter: () => ipsTl.play(),
-          });
+          // 3. IPS — pinned cinematic sequence (scroll-scrubbed)
+          const ipsTl = buildIpsCinematic(root, ipsSection);
 
           // 4. Reveals for the remaining flowing sections (additive)
           setupReveals(root);
