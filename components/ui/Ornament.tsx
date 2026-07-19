@@ -27,7 +27,7 @@ export function DividerOrnament({
 
 export function SectionDots({ active = 3, total = 7 }: { active?: number; total?: number }) {
   return (
-    <div className="flex items-center justify-center gap-2.5 py-8" aria-hidden>
+    <div className="flex items-center justify-center gap-2.5 py-4" aria-hidden>
       {Array.from({ length: total }).map((_, i) => {
         const dist = Math.abs(i - active);
         const size = dist === 0 ? 12 : dist === 1 ? 9 : 6;

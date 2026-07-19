@@ -18,7 +18,7 @@ export default function ExperienceGlance() {
         </span>
       </div>
 
-      <section className="relative overflow-hidden bg-[#0d0a06] px-6 py-20 lg:px-14">
+      <section className="relative overflow-hidden bg-[#0d0a06] px-6 py-12 lg:px-14">
         {/* faint radial glow */}
         <div
           className="pointer-events-none absolute inset-0 opacity-60"

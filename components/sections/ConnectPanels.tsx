@@ -8,7 +8,7 @@ const PANELS = [
 
 export default function ConnectPanels() {
   return (
-    <section className="relative z-10 bg-cream px-4 py-20 lg:px-10">
+    <section className="relative z-10 bg-cream px-4 py-12 lg:px-10">
       <CornerFrame className="mx-auto max-w-[1500px] rounded-[32px] border border-gold/20 bg-gradient-to-b from-[#f6efdd] to-cream px-6 py-14 sm:px-12">
         <div data-reveal-group className="grid grid-cols-1 items-stretch gap-8 lg:grid-cols-2">
           {PANELS.map((p) => (

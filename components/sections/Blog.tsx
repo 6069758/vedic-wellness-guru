@@ -11,7 +11,7 @@ const POSTS = [
 
 export default function Blog() {
   return (
-    <section className="relative z-10 bg-cream px-4 py-24 lg:px-10">
+    <section className="relative z-10 bg-cream px-4 py-14 lg:px-10">
       <div className="mx-auto max-w-[1600px]">
         <h2 data-reveal className="text-center font-serif text-[clamp(2rem,3.8vw,3rem)] font-semibold text-ink">
           From the Blog

@@ -18,7 +18,7 @@ export default function Testimonials() {
   const visible = [0, 1, 2].map((i) => TESTIMONIALS[(start + i) % n]);
 
   return (
-    <section className="relative z-10 bg-[#f6ecda] px-4 py-24 lg:px-10">
+    <section className="relative z-10 bg-[#f6ecda] px-4 py-14 lg:px-10">
       <div className="mx-auto max-w-[1500px]">
         <h2 data-reveal className="text-center font-serif text-[clamp(2rem,3.8vw,3rem)] font-semibold text-ink">
           What Clients Say

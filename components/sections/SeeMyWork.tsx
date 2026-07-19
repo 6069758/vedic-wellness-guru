@@ -10,7 +10,7 @@ const WORK = [
 
 export default function SeeMyWork() {
   return (
-    <section className="relative z-10 bg-cream px-4 py-16 lg:px-10">
+    <section className="relative z-10 bg-cream px-4 py-10 lg:px-10">
       <div className="mx-auto max-w-[1500px] rounded-[32px] border border-gold/15 bg-gradient-to-b from-[#f7f1e2] to-cream px-6 py-14 sm:px-12">
         <h2 data-reveal className="text-center font-serif text-[clamp(1.8rem,3.4vw,2.8rem)] font-semibold text-ink">
           See My Work

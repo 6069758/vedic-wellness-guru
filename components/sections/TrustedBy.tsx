@@ -5,7 +5,7 @@
  */
 export default function TrustedBy() {
   return (
-    <section className="relative z-10 bg-cream px-4 py-16 lg:px-10">
+    <section className="relative z-10 bg-cream px-4 py-8 lg:px-10">
       <div
         data-reveal
         className="relative mx-auto flex w-full max-w-[1560px] items-center justify-end overflow-hidden rounded-[34px] border border-gold/20 shadow-[0_30px_90px_-50px_rgba(120,90,30,0.55)]"
