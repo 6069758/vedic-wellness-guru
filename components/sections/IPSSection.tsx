@@ -1,40 +1,38 @@
 import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
 
 /**
- * IPS — "Instant Prediction System" (Slide 2 builds). Diagonal split layout:
- * copy card on the left, the airport-crowd photograph on the right.
+ * IPS — "Instant Prediction System". Curved panel on a pale-white page, using
+ * the provided ips-bg.png as the full backdrop (its diagonal composition is
+ * baked into the image); the copy is overlaid on the left.
  *
- * Every `ips-*` class below is a hook the UNCHANGED ips build timeline animates
+ * Every `ips-*` class is a hook the UNCHANGED ips build timeline animates
  * (wipe ×3 → pop → wipe → keyboard → wipe ×2 → move-in → move-in-character).
- * Do not rename them or the Keynote build order breaks.
+ * Do not rename them.
  */
 export default function IPSSection() {
   return (
-    <section className="scene-ips relative z-10 flex min-h-screen w-full items-center overflow-hidden bg-[#efe7d8]">
-      {/* Right — photograph, diagonally clipped */}
+    <section className="scene-ips relative z-10 flex min-h-screen w-full items-center justify-center bg-cream px-4 py-6 lg:px-8">
       <div
-        className="absolute inset-y-0 right-0 w-[62%]"
-        style={{ clipPath: "polygon(22% 0, 100% 0, 100% 100%, 8% 100%)" }}
+        className="relative w-full max-w-[1560px] overflow-hidden rounded-[34px] border border-gold/20 shadow-[0_30px_90px_-50px_rgba(120,90,30,0.55)]"
+        style={{
+          aspectRatio: "1645 / 956",
+          minHeight: 480,
+          backgroundColor: "#efe7d8",
+          backgroundImage: "url('/images/ips-bg.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
       >
-        <Image
-          src="/images/hero-crowd.png"
-          alt="Reading the moment amid a busy terminal"
-          fill
-          sizes="62vw"
-          className="object-cover object-[60%_center]"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#efe7d8] via-transparent to-transparent" />
-      </div>
+        {/* soft light wash on the left for legibility */}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#f3ecdd]/85 via-[#f3ecdd]/25 to-transparent" />
 
-      {/* Left — copy card */}
-      <div className="relative z-10 mx-auto w-full max-w-[1600px] px-6 py-24 lg:px-14">
-        <div className="max-w-[560px]">
+        {/* Left — copy overlay */}
+        <div className="absolute inset-0 z-10 flex w-full flex-col justify-center px-6 py-8 sm:px-12 lg:w-[56%] lg:py-12">
           {/* 1 — WIPE */}
-          <div className="ips-rule mb-6 h-[2px] w-20 bg-gold" />
+          <div className="ips-rule mb-5 h-[2px] w-20 bg-gold" />
 
           {/* 2 — WIPE + 3 — WIPE + 4 — POP */}
-          <div className="ips-kicker mb-6 flex items-center gap-4">
+          <div className="ips-kicker mb-4 flex items-center gap-4">
             <span className="text-[12px] font-semibold uppercase tracking-kicker text-gold">
               A Timing Method
             </span>
@@ -49,38 +47,40 @@ export default function IPSSection() {
           </div>
 
           {/* 10 — MOVE IN CHARACTER (climax) */}
-          <h2 className="ips-title font-serif text-[clamp(5rem,15vw,12rem)] font-bold leading-[0.85] tracking-tight text-ink">
+          <h2 className="ips-title font-serif text-[clamp(3.5rem,9vw,7rem)] font-bold leading-[0.85] tracking-tight text-[#1a120a]">
             IPS
           </h2>
 
           {/* 6 — KEYBOARD (typewriter), underlined */}
-          <h3 className="ips-subtitle mt-2 flex w-fit items-baseline border-b-2 border-gold/70 pb-1 font-serif text-[clamp(1.4rem,3vw,2.4rem)] font-medium italic text-ink">
+          <h3 className="ips-subtitle mt-1 flex w-fit items-baseline border-b-2 border-[#5E4A2A]/60 pb-1 font-serif text-[clamp(1.2rem,2.6vw,2rem)] font-medium italic text-[#3b2c17]">
             <span className="ips-subtitle-text">Instant Prediction System</span>
-            <span className="ips-caret ml-1 inline-block h-[1em] w-[3px] translate-y-[0.12em] bg-ink" />
+            <span className="ips-caret ml-1 inline-block h-[1em] w-[3px] translate-y-[0.12em] bg-[#3b2c17]" />
           </h3>
 
-          {/* 5 — WIPE (divider) + 7 & 8 — WIPE (body) */}
-          <div className="mt-8 max-w-[520px] rounded-2xl bg-ink/[0.82] p-7 text-cream/90 shadow-[0_24px_60px_-30px_rgba(0,0,0,0.7)]">
-            <div className="ips-divider mb-5 h-px w-24 bg-gold-soft/70" />
-            <p className="ips-body-1 text-[15px] leading-relaxed">
+          {/* 5 — WIPE (divider) + 7 & 8 — WIPE (body) — angled dark panel */}
+          <div
+            className="mt-6 max-w-[560px] bg-[#161008]/90 px-6 py-6 pr-16 text-cream/90 shadow-[0_24px_60px_-30px_rgba(0,0,0,0.7)] sm:px-8"
+            style={{ clipPath: "polygon(0 0, 100% 0, 90% 100%, 0 100%)" }}
+          >
+            <div className="ips-divider mb-4 h-px w-24 bg-gold-soft/70" />
+            <p className="ips-body-1 text-[13px] leading-relaxed sm:text-sm">
               A practical timing method developed through years of observation
               and real-life event patterns.
             </p>
-            <p className="ips-body-2 mt-4 text-[15px] leading-relaxed">
+            <p className="ips-body-2 mt-4 text-[13px] leading-relaxed sm:text-[15px]">
               It helps understand the direction of a situation by reading the
-              moment in an instant — through the environment and the signals
-              around you — before making an important decision or predicting the
-              future instantly.
+              moment in an instant through the environment and the signals around
+              you before making an important decision or predicting future
+              instantly.
             </p>
           </div>
 
           {/* 9 — MOVE IN */}
           <a
             href="#"
-            className="ips-cta group mt-9 inline-flex items-center gap-2 rounded-full bg-gradient-to-b from-gold-soft to-gold px-9 py-4 text-[13px] font-bold tracking-nav text-ink transition-shadow duration-300 hover:shadow-[0_0_44px_-8px_rgba(224,180,88,0.85)]"
+            className="ips-cta mt-6 inline-block w-fit rounded-full bg-gradient-to-b from-[#F3D488] to-[#C8953D] px-7 py-3 text-[12px] font-bold tracking-nav text-[#241a0f] shadow-lg ring-1 ring-[#F3D488]/60 transition-shadow duration-300 hover:shadow-[0_0_44px_-8px_rgba(224,180,88,0.85)] sm:text-sm"
           >
-            EXPLORE IPS
-            <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            GET YOUR INSTANT PREDICTIONS NOW!!
           </a>
         </div>
       </div>

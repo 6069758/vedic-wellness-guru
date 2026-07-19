@@ -15,19 +15,15 @@ const SERVICES = [
  */
 export default function ServicesScene() {
   return (
-    <div className="scene-services absolute inset-0 z-10 flex h-full w-full items-center bg-cream">
-      {/* parchment backdrop */}
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{ background: "radial-gradient(120% 90% at 50% 30%, #fbf7ec 0%, #f2ead6 60%, #e9dcbf 100%)" }}
-      />
-      <div className="relative mx-auto w-full max-w-[1600px] px-6 lg:px-12">
+    <div className="scene-services absolute inset-0 z-10 flex h-full w-full items-center justify-center bg-cream px-4 py-6 lg:px-8">
+      {/* curved pale-white panel (like the reference) */}
+      <div className="relative mx-auto w-full max-w-[1560px] rounded-[34px] border border-gold/20 bg-[#faf6ec] px-6 py-10 shadow-[0_30px_90px_-50px_rgba(120,90,30,0.5)] sm:px-10 sm:py-12 lg:px-14">
         <div className="svc-head text-center">
-          <h2 className="font-serif text-[clamp(2rem,4vw,3.4rem)] font-semibold text-ink">Explore Services</h2>
+          <h2 className="font-serif text-[clamp(1.8rem,3.6vw,3rem)] font-semibold text-ink">Explore Services</h2>
           <DividerOrnament className="mt-5" />
         </div>
 
-        <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-4">
+        <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-4">
           {SERVICES.map((s, i) => (
             <article
               key={s.title}
