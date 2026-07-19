@@ -68,12 +68,14 @@ export default function Hero() {
         {/* Glossy diagonal glass sheen — sweeps once on load */}
         <div className="hero-glass" aria-hidden />
 
-        {/* Handwritten signature (Gincu) centred over the vest */}
-        <div className="hero-name pointer-events-none absolute bottom-[13%] left-[16%] -rotate-[5deg] text-center leading-[0.95]">
-          <span className="block font-sign text-5xl text-cream drop-shadow-[0_2px_12px_rgba(0,0,0,0.75)] sm:text-[64px]">
+        {/* Handwritten signature (Gincu) — centred over the vest, exactly as the
+            reference image: two lines, "Astro" directly under "Shree Gaurav",
+            no rotation, no stretch. */}
+        <div className="hero-name pointer-events-none absolute bottom-[14%] left-[4%] w-[42%] text-center leading-[1.0]">
+          <span className="block font-sign text-5xl text-cream drop-shadow-[0_2px_12px_rgba(0,0,0,0.75)] sm:text-[62px]">
             Shree Gaurav
           </span>
-          <span className="mt-1 block font-sign text-5xl text-cream drop-shadow-[0_2px_12px_rgba(0,0,0,0.75)] sm:text-[64px]">
+          <span className="mt-1 block font-sign text-5xl text-cream drop-shadow-[0_2px_12px_rgba(0,0,0,0.75)] sm:text-[62px]">
             Astro
           </span>
         </div>

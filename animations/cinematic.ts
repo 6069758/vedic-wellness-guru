@@ -2,52 +2,45 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 /**
- * Hero → Explore cinematic transition (scroll-scrubbed).
+ * Hero → Explore Services — one pinned viewport, one continuous crossfade.
  *
- * The HERO is pinned. While pinned, the Explore section is promoted to a fixed
- * opaque backdrop (`.as-overlay`) that sits behind the hero; the hero dissolves
- * away to reveal it while the four cards choreograph in. When the pin releases,
- * `.as-overlay` is removed and Explore returns to NORMAL flow — so the cards are
- * a real, hoverable section afterwards (exactly like the reference).
+ * Hero (front) and Explore (behind) are stacked inside the SAME pinned stage.
+ * The hero dissolves to reveal Explore while the cards choreograph in. Explore
+ * lives only here — no duplicate section, no pin-gap blank. When the timeline
+ * finishes the pin releases straight into the next section.
  */
-export function buildCinematic(
-  scope: HTMLElement,
-  heroStageEl: HTMLElement,
-  exploreEl: HTMLElement
-) {
+export function buildCinematic(scope: HTMLElement, stageEl: HTMLElement) {
   const q = gsap.utils.selector(scope);
 
   const sceneHero = q(".scene-hero");
+  const sceneServices = q(".scene-services");
   const heading = q(".svc-head");
   const card1 = q(".svc-card-1");
   const card2 = q(".svc-card-2");
   const card3 = q(".svc-card-3");
   const card4 = q(".svc-card-4");
 
-  gsap.set(exploreEl, { opacity: 0 });
+  gsap.set(sceneServices, { opacity: 0 });
   gsap.set(heading, { opacity: 0, y: 24 });
   gsap.set(card2, { yPercent: -260 });
   gsap.set(card3, { yPercent: 260 });
   gsap.set([card1, card4], { opacity: 0, scale: 0.82 });
 
-  const setOverlay = (on: boolean) => exploreEl?.classList.toggle("as-overlay", on);
-
   const tl = gsap.timeline({
     scrollTrigger: {
-      trigger: heroStageEl,
+      trigger: stageEl,
       start: "top top",
-      end: "+=240%",
+      end: "+=220%",
       scrub: 1,
       pin: true,
       pinSpacing: true,
       anticipatePin: 1,
       invalidateOnRefresh: true,
-      onToggle: (self) => setOverlay(self.isActive),
     },
   });
 
-  // crossfade: hero dissolves, explore backdrop rises
-  tl.to(exploreEl, { opacity: 1, duration: 1, ease: "power1.inOut" }, 0);
+  // crossfade — hero dissolves while Explore rises (both visible mid-way)
+  tl.to(sceneServices, { opacity: 1, duration: 1, ease: "power1.inOut" }, 0);
   tl.to(sceneHero, { opacity: 0, duration: 1, ease: "power1.inOut" }, 0.05);
   tl.to(q(".hero-copy"), { yPercent: -16, duration: 1, ease: "power1.in" }, 0);
   tl.to(heading, { opacity: 1, y: 0, duration: 0.55, ease: "power2.out" }, 0.7);

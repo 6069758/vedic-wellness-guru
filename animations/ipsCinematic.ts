@@ -30,9 +30,10 @@ export function buildIpsCinematic(scope: HTMLElement, stageEl: HTMLElement) {
   const split = new SplitType(paras, { types: "lines", lineClass: "ips-line" });
   const lines = split.lines ?? [];
 
-  // frame dissolves in with the background (the crossfade), everything else hidden
-  gsap.set(q(".ips-frame"), { opacity: 0 });
-  gsap.set(q(".ips-bg"), { opacity: 0, scale: 1.08, yPercent: 3 });
+  // frame + background are visible immediately (NO blank/white frame ever);
+  // only a subtle zoom-out plays as the section settles.
+  gsap.set(q(".ips-frame"), { opacity: 1 });
+  gsap.set(q(".ips-bg"), { opacity: 1, scale: 1.08 });
   gsap.set(q(".ips-glass"), { opacity: 0, xPercent: -75 });
   gsap.set(q(".ips-kicker"), { opacity: 0, y: 18 });
   gsap.set(q(".ips-title"), { opacity: 0, y: 26 });
@@ -57,9 +58,8 @@ export function buildIpsCinematic(scope: HTMLElement, stageEl: HTMLElement) {
   });
 
   tl
-    // ── 1 + 2 · BACKGROUND ESTABLISHES ALONE (focus first, nothing else moves) ──
-    .to(q(".ips-frame"), { opacity: 1, duration: 0.6, ease: "power1.out" }, 0.0)
-    .to(q(".ips-bg"), { opacity: 1, scale: 1, yPercent: 0, duration: 1.5, ease: "power2.out" }, 0.0)
+    // ── 1 + 2 · BACKGROUND SETTLES ALONE (visible from the start — no blank) ──
+    .to(q(".ips-bg"), { scale: 1, duration: 1.5, ease: "power2.out" }, 0.0)
 
     // ── 3 · diagonal white glass divider sweeps into position (after bg is set) ──
     .to(q(".ips-glass"), { opacity: 1, xPercent: 0, duration: 1.1, ease: "power2.inOut" }, 1.55)
