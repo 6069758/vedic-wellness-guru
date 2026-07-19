@@ -51,6 +51,47 @@ html.lenis body {
   color: #f7f6f1;
 }
 
+/* Explore becomes a fixed opaque backdrop while the hero is pinned (GSAP toggles it) */
+.as-overlay {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 5 !important;
+  margin: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  overflow: hidden !important;
+  background: #f7f6f1 !important;
+}
+
+/* Diagonal glass sheen that sweeps across the hero once on load */
+.hero-glass {
+  position: absolute;
+  inset: 0;
+  z-index: 25;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+.hero-glass::before {
+  content: "";
+  position: absolute;
+  top: -20%;
+  bottom: -20%;
+  left: -40%;
+  width: 55%;
+  background: linear-gradient(
+    105deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.1) 40%,
+    rgba(255, 255, 255, 0.38) 50%,
+    rgba(255, 255, 255, 0.1) 60%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  filter: blur(6px);
+  transform: skewX(-12deg);
+}
+
 /* ===== Gold CTA buttons — glow hover (matches the reference) ===== */
 .btn-gold {
   background: linear-gradient(180deg, #f3d488 0%, #d4a24c 55%, #b9821f 100%);

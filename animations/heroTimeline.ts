@@ -30,6 +30,7 @@ export function buildHeroTimeline(scope: HTMLElement) {
 
   gsap.set(q(".hero-bg"), { opacity: 0, yPercent: -26, scale: 1 });
   gsap.set(q(".hero-glow"), { opacity: 0 });
+  gsap.set(q(".hero-glass"), { opacity: 0, xPercent: -120 });
   gsap.set(q(".hero-name"), { opacity: 1 });
   gsap.set(nameChars, { opacity: 0, y: 8 });
   gsap.set(q(".hero-copy"), { opacity: 0, x: 170, scale: 0.98 });
@@ -50,6 +51,11 @@ export function buildHeroTimeline(scope: HTMLElement) {
 
   // 2 — ambient glow
   tl.to(q(".hero-glow"), { opacity: 1, duration: 1.3, ease: "sine.out" }, 0.35);
+
+  // glossy glass sheen sweeps across once as the background settles
+  tl.set(q(".hero-glass"), { opacity: 1 }, 0.9);
+  tl.fromTo(q(".hero-glass"), { xPercent: -120 }, { xPercent: 120, duration: 1.1, ease: "power2.inOut" }, 0.9);
+  tl.set(q(".hero-glass"), { opacity: 0 }, 2.05);
 
   // nav drops in alongside
   tl.to(q(".nav-root"), { opacity: 1, y: 0, duration: 0.8 }, 0.4);

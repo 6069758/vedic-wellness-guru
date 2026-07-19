@@ -27,9 +27,9 @@ export default function TrustedBy() {
         />
 
         {/* Right — copy card */}
-        <div className="relative z-10 mr-6 flex w-full max-w-[560px] items-center px-2 py-6 lg:mr-[8%] lg:w-[46%]">
-          <div className="w-full rounded-[28px] border border-gold-soft/25 bg-black/30 p-8 text-center backdrop-blur-sm sm:p-10">
-            <h2 className="font-serif text-[clamp(2.2rem,5vw,3.6rem)] font-bold tracking-wide text-cream drop-shadow-[0_2px_6px_rgba(0,0,0,0.5)]">
+        <div className="relative z-10 mr-6 flex w-full max-w-[680px] items-center px-2 py-6 lg:mr-[6%] lg:w-[52%]">
+          <div className="w-full rounded-[32px] border border-gold-soft/25 bg-black/30 p-10 text-center backdrop-blur-sm sm:p-14">
+            <h2 className="font-serif text-[clamp(2.6rem,6vw,4.4rem)] font-bold tracking-wide text-cream drop-shadow-[0_2px_6px_rgba(0,0,0,0.5)]">
               Trusted By
             </h2>
             <p className="mx-auto mt-5 max-w-[520px] text-[14px] leading-relaxed text-cream/90 sm:text-[15px]">

@@ -65,6 +65,9 @@ export default function Hero() {
           ))}
         </div>
 
+        {/* Glossy diagonal glass sheen — sweeps once on load */}
+        <div className="hero-glass" aria-hidden />
+
         {/* Handwritten signature (Gincu) centred over the vest */}
         <div className="hero-name pointer-events-none absolute bottom-[13%] left-[16%] -rotate-[5deg] text-center leading-[0.95]">
           <span className="block font-sign text-5xl text-cream drop-shadow-[0_2px_12px_rgba(0,0,0,0.75)] sm:text-[64px]">

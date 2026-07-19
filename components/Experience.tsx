@@ -12,6 +12,7 @@ import { setupReveals } from "@/animations/reveals";
 
 import Navbar from "./Navbar";
 import CinematicStage from "./CinematicStage";
+import ServicesScene from "./sections/ServicesScene";
 import ExperienceGlance from "./sections/ExperienceGlance";
 import IPSSection from "./sections/IPSSection";
 import TrustedBy from "./sections/TrustedBy";
@@ -24,6 +25,7 @@ import Footer from "./sections/Footer";
 export default function Experience() {
   const rootRef = useRef<HTMLDivElement>(null);
   const stageRef = useRef<HTMLDivElement>(null);
+  const exploreRef = useRef<HTMLDivElement>(null);
   const ipsRef = useRef<HTMLDivElement>(null);
 
   useLenis();
@@ -31,8 +33,9 @@ export default function Experience() {
   useIsomorphicLayoutEffect(() => {
     const root = rootRef.current;
     const stage = stageRef.current;
+    const explore = exploreRef.current;
     const ipsSection = ipsRef.current;
-    if (!root || !stage || !ipsSection) return;
+    if (!root || !stage || !explore || !ipsSection) return;
 
     gsap.registerPlugin(ScrollTrigger);
 
@@ -51,7 +54,7 @@ export default function Experience() {
           const heroTl = buildHeroTimeline(root);
 
           // 2. CINEMATIC STAGE — pinned Hero → Services crossfade + card choreography
-          const cineTl = buildCinematic(root, stage);
+          const cineTl = buildCinematic(root, stage, explore);
 
           // 3. IPS — pinned cinematic sequence (scroll-scrubbed)
           const ipsTl = buildIpsCinematic(root, ipsSection);
@@ -89,8 +92,13 @@ export default function Experience() {
       {/* Persistent site navigation */}
       <Navbar />
 
-      {/* Pinned cinematic intro: Hero → Explore Services */}
+      {/* Pinned hero */}
       <CinematicStage ref={stageRef} />
+
+      {/* Explore Services — normal, hoverable section (overlaid during the hero pin) */}
+      <div ref={exploreRef}>
+        <ServicesScene />
+      </div>
 
       {/* Normal scroll continues */}
       <ExperienceGlance />
