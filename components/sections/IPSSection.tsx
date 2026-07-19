@@ -11,7 +11,7 @@ import Image from "next/image";
 export default function IPSSection() {
   return (
     <section className="ips-stage relative flex h-screen w-full items-center justify-center overflow-hidden bg-cream px-4 py-6 lg:px-8">
-      <div className="relative h-[88vh] w-full max-w-[1560px] overflow-hidden rounded-[34px] border border-gold/20 shadow-[0_30px_90px_-45px_rgba(120,90,30,0.55)]">
+      <div className="ips-frame relative h-[88vh] w-full max-w-[1560px] overflow-hidden rounded-[34px] border border-gold/20 shadow-[0_30px_90px_-45px_rgba(120,90,30,0.55)]">
         {/* background layer (fades in + zooms out) */}
         <div
           className="ips-bg absolute inset-0 will-change-transform"
