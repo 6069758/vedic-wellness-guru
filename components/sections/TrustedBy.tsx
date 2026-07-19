@@ -10,8 +10,7 @@ export default function TrustedBy() {
         data-reveal
         className="relative mx-auto flex w-full max-w-[1560px] items-center justify-end overflow-hidden rounded-[34px] border border-gold/20 shadow-[0_30px_90px_-50px_rgba(120,90,30,0.55)]"
         style={{
-          aspectRatio: "2137 / 736",
-          minHeight: 400,
+          aspectRatio: "1672 / 941",
           backgroundColor: "#2a2016",
           backgroundImage: "url('/images/trusted-bg.png')",
           backgroundSize: "cover",
@@ -48,7 +47,7 @@ export default function TrustedBy() {
             </p>
             <a
               href="#"
-              className="mt-7 inline-flex items-center rounded-full bg-gradient-to-b from-[#F3D488] to-[#C8953D] px-8 py-3 text-[13px] font-semibold tracking-nav text-[#241a0f] ring-1 ring-[#F3D488]/60 transition-shadow duration-300 hover:shadow-[0_0_36px_-8px_rgba(243,212,136,0.7)]"
+              className="btn-gold mt-7 inline-flex items-center rounded-full px-8 py-3 text-[13px] font-semibold tracking-nav ring-1 ring-[#F3D488]/60"
             >
               Request Personal Consultation
             </a>

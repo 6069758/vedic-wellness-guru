@@ -1,4 +1,5 @@
 import { gsap } from "gsap";
+import SplitType from "split-type";
 
 /**
  * HERO load sequence (Slide 1). Autoplays on mount — a normal GSAP timeline,
@@ -22,9 +23,15 @@ export function buildHeroTimeline(scope: HTMLElement) {
   // initial states
   // background waits ABOVE and drops straight down into place; glass card waits
   // to the RIGHT and slides in — both fading in (exactly as requested).
+  // split the signature into characters so it can "write" itself in
+  const nameEl = q(".hero-name")[0] as HTMLElement;
+  const nameSplit = nameEl ? new SplitType(nameEl, { types: "chars" }) : null;
+  const nameChars = nameSplit?.chars ?? [];
+
   gsap.set(q(".hero-bg"), { opacity: 0, yPercent: -26, scale: 1 });
   gsap.set(q(".hero-glow"), { opacity: 0 });
-  gsap.set(q(".hero-name"), { opacity: 0, y: 24, rotate: -12 });
+  gsap.set(q(".hero-name"), { opacity: 1 });
+  gsap.set(nameChars, { opacity: 0, y: 8 });
   gsap.set(q(".hero-copy"), { opacity: 0, x: 170, scale: 0.98 });
   gsap.set(q(".reveal-inner"), { yPercent: 115 });
   gsap.set(q(".hero-body"), { opacity: 0, y: 22 });
@@ -47,8 +54,12 @@ export function buildHeroTimeline(scope: HTMLElement) {
   // nav drops in alongside
   tl.to(q(".nav-root"), { opacity: 1, y: 0, duration: 0.8 }, 0.4);
 
-  // signature reveals with the astrologer
-  tl.to(q(".hero-name"), { opacity: 1, y: 0, rotate: -7, duration: 1.0, ease: "power2.out" }, 0.9);
+  // signature "writes" itself in — character by character (handwriting feel)
+  tl.to(
+    nameChars,
+    { opacity: 1, y: 0, duration: 0.04, stagger: 0.055, ease: "none" },
+    0.9
+  );
 
   // 4 — hero card slides in from the right
   tl.to(q(".hero-copy"), { opacity: 1, x: 0, scale: 1, duration: 1.1, ease: "power3.out" }, 0.8);

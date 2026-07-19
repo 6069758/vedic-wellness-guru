@@ -83,7 +83,7 @@ export default function IPSSection() {
 
           <a
             href="#"
-            className="ips-cta mt-6 inline-block w-fit rounded-full bg-gradient-to-b from-[#F3D488] to-[#C8953D] px-7 py-3 text-[12px] font-bold tracking-nav text-[#241a0f] shadow-lg ring-1 ring-[#F3D488]/60 transition-shadow duration-300 hover:shadow-[0_0_44px_-8px_rgba(224,180,88,0.85)] sm:text-sm will-change-transform"
+            className="ips-cta btn-gold-glow mt-6 inline-block w-fit rounded-full px-7 py-3 text-[12px] font-bold tracking-nav ring-1 ring-[#F3D488]/60 sm:text-sm will-change-transform"
           >
             GET YOUR INSTANT PREDICTIONS NOW!!
           </a>

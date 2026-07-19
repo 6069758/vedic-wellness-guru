@@ -24,7 +24,7 @@ export default function ConnectPanels() {
               <p className="mb-8 font-serif text-lg text-ink-soft">{p.sub}</p>
               <a
                 href="#"
-                className="inline-flex items-center gap-2.5 rounded-full bg-gradient-to-b from-gold-soft to-gold px-8 py-3.5 text-[14px] font-semibold text-ink shadow-[0_10px_28px_-10px_rgba(200,145,46,0.9)] transition-all duration-300 hover:brightness-105"
+                className="btn-gold inline-flex items-center gap-2.5 rounded-full px-8 py-3.5 text-[14px] font-semibold ring-1 ring-[#F3D488]/60"
               >
                 <MessageCircle className="h-5 w-5" />
                 Connect On WhatsApp

@@ -118,7 +118,7 @@ export default function Hero() {
 
               <a
                 href="#"
-                className="hero-cta mt-7 inline-flex items-center rounded-full bg-gradient-to-b from-[#f3ead2] to-[#e2cfa4] px-8 py-3 font-sans text-[13px] font-semibold tracking-wide text-[#3a2a12] shadow-[0_16px_40px_-16px_rgba(0,0,0,0.7)] transition-shadow duration-300 hover:shadow-[0_20px_50px_-14px_rgba(243,234,210,0.7)]"
+                className="hero-cta btn-gold-glow mt-7 inline-flex items-center rounded-full px-8 py-3 font-sans text-[13px] font-semibold tracking-wide ring-1 ring-[#F3D488]/60"
               >
                 Request Personal Consultation
               </a>

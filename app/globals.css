@@ -51,6 +51,37 @@ html.lenis body {
   color: #f7f6f1;
 }
 
+/* ===== Gold CTA buttons — glow hover (matches the reference) ===== */
+.btn-gold {
+  background: linear-gradient(180deg, #f3d488 0%, #d4a24c 55%, #b9821f 100%);
+  color: #241a0f;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
+  transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 300ms ease, filter 300ms ease;
+}
+.btn-gold:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 14px 34px rgba(201, 149, 61, 0.55),
+    0 0 24px rgba(233, 200, 119, 0.55);
+  filter: brightness(1.07);
+}
+.btn-gold:active {
+  transform: translateY(-1px) scale(0.99);
+}
+
+/* Glow-only variant for GSAP-driven buttons (no transform fight during scrub) */
+.btn-gold-glow {
+  background: linear-gradient(180deg, #f3d488 0%, #d4a24c 55%, #b9821f 100%);
+  color: #241a0f;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
+  transition: box-shadow 300ms ease, filter 300ms ease;
+}
+.btn-gold-glow:hover {
+  box-shadow: 0 14px 34px rgba(201, 149, 61, 0.55),
+    0 0 26px rgba(233, 200, 119, 0.6);
+  filter: brightness(1.08);
+}
+
 /* ===== Floating glass capsule navbar (matches the reference exactly) ===== */
 .nav-wrap {
   position: fixed;

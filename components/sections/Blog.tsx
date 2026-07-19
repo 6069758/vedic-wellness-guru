@@ -43,7 +43,7 @@ export default function Blog() {
           <span className="hidden h-px w-24 bg-gradient-to-r from-transparent to-gold sm:block" />
           <a
             href="#"
-            className="inline-flex items-center gap-2.5 rounded-full bg-gradient-to-b from-gold to-[#a9761f] px-8 py-3.5 text-[13px] font-semibold tracking-nav text-cream shadow-[0_12px_30px_-12px_rgba(200,145,46,0.9)] transition-all duration-300 hover:brightness-110"
+            className="btn-gold inline-flex items-center gap-2.5 rounded-full px-8 py-3.5 text-[13px] font-semibold tracking-nav ring-1 ring-[#F3D488]/60"
           >
             <BookOpen className="h-4 w-4" />
             View All Articles

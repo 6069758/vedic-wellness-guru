@@ -35,14 +35,14 @@ export default function ServicesScene() {
             // Outer article = GSAP entrance target (no hover transform → no fight);
             // inner div = the visual card carrying the full hover effect.
             <article key={s.title} className={`svc-card-${i + 1}`}>
-              <div className="group flex h-full flex-col overflow-hidden rounded-3xl border border-gold/15 bg-white/80 shadow-[0_22px_60px_-34px_rgba(120,90,30,0.6)] backdrop-blur-sm transition-[transform,box-shadow,filter] duration-[400ms] ease-out will-change-transform hover:-translate-y-2 hover:scale-[1.02] hover:brightness-[1.03] hover:shadow-[0_28px_56px_-16px_rgba(201,149,61,0.45),0_0_26px_-4px_rgba(233,200,119,0.5)]">
+              <div className="group flex h-full flex-col overflow-hidden rounded-3xl border border-gold/15 bg-white/80 shadow-[0_22px_60px_-34px_rgba(120,90,30,0.6)] backdrop-blur-sm transition-[transform,box-shadow,filter] duration-[350ms] ease-[cubic-bezier(.22,1,.36,1)] will-change-transform hover:-translate-y-2 hover:scale-[1.03] hover:brightness-105 hover:shadow-[0_30px_58px_-14px_rgba(201,149,61,0.5),0_0_28px_-2px_rgba(233,200,119,0.55)]">
                 <Placeholder
                   file={s.file}
                   src={`/images/${s.file}`}
                   label={s.title}
                   ratio="4 / 3"
                   rounded="rounded-none"
-                  imgClassName="object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.1]"
+                  imgClassName="object-cover transition-transform duration-[750ms] ease-[cubic-bezier(.22,1,.36,1)] group-hover:scale-[1.09]"
                 />
                 <div className="flex flex-1 flex-col p-6">
                   <h3 className="font-serif text-lg font-semibold text-ink">{s.title}</h3>
