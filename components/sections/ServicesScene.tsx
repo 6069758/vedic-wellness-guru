@@ -3,10 +3,10 @@ import { DividerOrnament } from "../ui/Ornament";
 import { Plus } from "lucide-react";
 
 const SERVICES = [
-  { file: "service-astrology.jpg", title: "Astrology Consultation", desc: "Experience personalized Astrology consults — personal or horoscope matching." },
-  { file: "service-vastu.jpg", title: "Vastu Consultation", desc: "Achieve harmony in perfect Vastu — we harmonize where needed." },
-  { file: "service-courses.jpg", title: "Live Courses", desc: "One-to-one live courses — Astro Vastu, Vedic & KP Astrology, Nadi, Palmistry, Lal Kitab, Tarot, Sadhana & Prediction modules." },
-  { file: "service-meditation.jpg", title: "Meditation", desc: "Deep calm, emotional balance, spiritual enhancement & reduced stress. Guided meditation sessions." },
+  { file: "service-astrology.png", title: "Astrology Consultation", desc: "Experience personalized Astrology consults — personal or horoscope matching." },
+  { file: "service-vastu.png", title: "Vastu Consultation", desc: "Achieve harmony in perfect Vastu — we harmonize where needed." },
+  { file: "service-courses.jpeg", title: "Live Courses", desc: "One-to-one live courses — Astro Vastu, Vedic & KP Astrology, Nadi, Palmistry, Lal Kitab, Tarot, Sadhana & Prediction modules." },
+  { file: "service-meditation.png", title: "Meditation", desc: "Deep calm, emotional balance, spiritual enhancement & reduced stress. Guided meditation sessions." },
 ];
 
 /**
@@ -31,6 +31,7 @@ export default function ServicesScene() {
             >
               <Placeholder
                 file={s.file}
+                src={`/images/${s.file}`}
                 label={s.title}
                 ratio="4 / 3"
                 rounded="rounded-none"
