@@ -81,14 +81,14 @@ export default function Hero() {
         </div>
 
         {/* Copy card (right) */}
-        <div className="relative z-30 grid h-full grid-cols-1 items-center lg:grid-cols-[46%_54%]">
+        <div className="relative z-30 grid h-full grid-cols-1 items-center lg:grid-cols-[52%_48%]">
           <div className="hidden lg:block" />
-          <div className="flex items-center px-5 sm:px-8 lg:pr-12">
+          <div className="flex items-center justify-end px-5 sm:px-8 lg:pr-12">
             <div
-              className="hero-copy w-full rounded-[28px] border border-[#e0b95f]/30 p-6 text-center shadow-[0_40px_100px_-40px_rgba(0,0,0,0.85)] backdrop-blur-md sm:p-8 lg:p-10"
+              className="hero-copy w-full max-w-[520px] rounded-[28px] border border-[#e0b95f]/30 p-6 text-center shadow-[0_40px_100px_-40px_rgba(0,0,0,0.85)] backdrop-blur-md sm:p-8 lg:p-9"
               style={{
                 background:
-                  "linear-gradient(180deg, rgba(46,31,16,0.72) 0%, rgba(34,22,11,0.7) 100%)",
+                  "linear-gradient(180deg, rgba(46,31,16,0.56) 0%, rgba(34,22,11,0.54) 100%)",
               }}
             >
               <h1 className="hero-title font-serif text-cream">

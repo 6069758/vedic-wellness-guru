@@ -1,4 +1,4 @@
-import { SectionDots } from "../ui/Ornament";
+import { SectionDots, DividerOrnament } from "../ui/Ornament";
 
 const STATS = [
   { count: "30", suffix: "+", label: "Years of Experience" },
@@ -11,30 +11,26 @@ const STATS = [
 export default function ExperienceGlance() {
   return (
     <div className="relative z-10 bg-cream">
-      {/* Thin transition band */}
-      <div className="bg-[#161009] py-3 text-center">
-        <span className="font-serif text-lg text-cream/90">
-          Key Insights into <span className="text-gold-soft">Vedic Astrology &amp; Vastu</span>
-        </span>
-      </div>
-
-      <section className="relative overflow-hidden bg-[#0d0a06] px-6 py-12 lg:px-14">
+      <section className="relative overflow-hidden bg-[#0d0a06] px-6 py-16 lg:px-14">
         {/* faint radial glow */}
         <div
           className="pointer-events-none absolute inset-0 opacity-60"
           style={{ background: "radial-gradient(60% 60% at 50% 30%, rgba(200,145,46,0.16), transparent 70%)" }}
         />
         <div className="relative mx-auto max-w-[1400px]">
-          <h2 data-reveal className="text-center font-serif text-[clamp(1.8rem,3.4vw,2.8rem)] font-semibold text-cream">
+          <h2 data-reveal className="text-center font-serif text-[clamp(1.9rem,3.6vw,3rem)] font-semibold text-cream">
             Experience at a <span className="text-gold-soft">Glance</span>
           </h2>
+          <div data-reveal className="mt-5">
+            <DividerOrnament />
+          </div>
 
           <div data-reveal-group className="mt-14 grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-5">
             {STATS.map((s) => (
               <div key={s.label} data-reveal-item className="flex flex-col items-center text-center">
-                <div className="relative flex h-24 w-24 items-center justify-center rounded-[22px] bg-gradient-to-b from-gold-soft to-gold shadow-[0_0_40px_-8px_rgba(200,145,46,0.8)]">
+                <div className="relative flex h-[106px] w-[106px] items-center justify-center rounded-[24px] border border-gold-soft/50 bg-gradient-to-b from-gold-soft to-gold shadow-[0_0_40px_-8px_rgba(200,145,46,0.85),inset_0_1px_2px_rgba(255,245,210,0.6)]">
                   <span
-                    className="font-serif text-3xl font-bold text-ink"
+                    className="font-serif text-[2.1rem] font-bold text-ink"
                     data-count={s.count}
                     data-suffix={s.suffix}
                   >

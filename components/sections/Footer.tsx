@@ -108,7 +108,7 @@ export default function Footer() {
                 className="w-full bg-transparent text-[13px] text-ink outline-none placeholder:text-ink-soft/50"
               />
             </div>
-            <button className="w-full rounded-xl bg-gradient-to-b from-gold-soft to-gold py-3 text-[14px] font-semibold text-ink transition-all hover:brightness-105">
+            <button className="btn-gold w-full rounded-xl py-3 text-[14px]">
               Subscribe
             </button>
           </form>

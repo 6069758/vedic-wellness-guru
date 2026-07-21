@@ -35,7 +35,6 @@ export function buildIpsCinematic(scope: HTMLElement, stageEl: HTMLElement) {
   gsap.set(q(".ips-frame"), { opacity: 1 });
   gsap.set(q(".ips-bg"), { opacity: 1, scale: 1.08 });
   gsap.set(q(".ips-glass"), { opacity: 0, xPercent: -75 });
-  gsap.set(q(".ips-kicker"), { opacity: 0, y: 18 });
   gsap.set(q(".ips-title"), { opacity: 0, y: 26 });
   gsap.set(q(".ips-subtitle"), { opacity: 0, y: 22 });
   gsap.set(q(".ips-underline"), { scaleX: 0, transformOrigin: "left center" });
@@ -48,10 +47,11 @@ export function buildIpsCinematic(scope: HTMLElement, stageEl: HTMLElement) {
     scrollTrigger: {
       trigger: stageEl,
       start: "top top",
-      end: "+=2400",
+      end: "+=140%",
       pin: true,
       pinSpacing: true,
-      scrub: 1.1,
+      // play the sequence ONCE on enter; never reverse when scrolling back
+      toggleActions: "play none none none",
       anticipatePin: 1,
       invalidateOnRefresh: true,
     },
@@ -64,9 +64,8 @@ export function buildIpsCinematic(scope: HTMLElement, stageEl: HTMLElement) {
     // ── 3 · diagonal white glass divider sweeps into position (after bg is set) ──
     .to(q(".ips-glass"), { opacity: 1, xPercent: 0, duration: 1.1, ease: "power2.inOut" }, 1.55)
 
-    // ── 4 · IPS title block reveals, top-left (kicker → IPS → subtitle → underline) ──
-    .to(q(".ips-kicker"), { opacity: 1, y: 0, duration: 0.7 }, 2.05)
-    .to(q(".ips-title"), { opacity: 1, y: 0, duration: 0.9, ease: "power3.out" }, 2.2)
+    // ── 4 · IPS title block reveals, top-left (IPS → subtitle → underline) ──
+    .to(q(".ips-title"), { opacity: 1, y: 0, duration: 0.9, ease: "power3.out" }, 2.05)
     .to(q(".ips-subtitle"), { opacity: 1, y: 0, duration: 0.75 }, 2.55)
     .to(q(".ips-underline"), { scaleX: 1, duration: 0.75, ease: "power2.inOut" }, 2.75)
 

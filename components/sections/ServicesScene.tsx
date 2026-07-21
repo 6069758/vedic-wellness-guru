@@ -17,7 +17,7 @@ export default function ServicesScene() {
   return (
     <div className="scene-services absolute inset-0 z-10 flex h-full w-full items-center justify-center bg-cream px-4 py-8 lg:px-8">
       {/* curved pale-white panel with a soft gold-dust glow */}
-      <div className="relative mx-auto w-full max-w-[1560px] overflow-hidden rounded-[34px] border border-gold/20 bg-[#faf6ec] px-6 py-10 shadow-[0_30px_90px_-50px_rgba(120,90,30,0.5)] sm:px-10 sm:py-12 lg:px-14">
+      <div className="relative mx-auto w-full max-w-[1560px] overflow-hidden rounded-[34px] border border-gold/25 bg-[#faf6ec] px-6 py-10 shadow-[0_30px_90px_-50px_rgba(120,90,30,0.5)] sm:px-10 sm:py-12 lg:px-14">
         <div
           className="pointer-events-none absolute inset-0"
           style={{
@@ -25,6 +25,8 @@ export default function ServicesScene() {
               "radial-gradient(70% 55% at 50% 0%, rgba(201,149,61,0.12), transparent 60%), radial-gradient(50% 40% at 85% 100%, rgba(233,200,119,0.08), transparent 65%)",
           }}
         />
+        {/* thin gold inner border */}
+        <div className="pointer-events-none absolute inset-3 rounded-[26px] border border-gold/25" />
         <div className="svc-head relative text-center">
           <h2 className="font-serif text-[clamp(1.8rem,3.6vw,3rem)] font-semibold text-ink">Explore Services</h2>
           <DividerOrnament className="mt-5" />
@@ -35,18 +37,19 @@ export default function ServicesScene() {
             // Outer article = GSAP entrance target (no hover transform → no fight);
             // inner div = the visual card carrying the full hover effect.
             <article key={s.title} className={`svc-card-${i + 1}`}>
-              <div className="group flex h-full flex-col overflow-hidden rounded-3xl border border-gold/15 bg-white/80 shadow-[0_22px_60px_-34px_rgba(120,90,30,0.6)] backdrop-blur-sm transition-[transform,box-shadow,filter] duration-[350ms] ease-[cubic-bezier(.22,1,.36,1)] will-change-transform hover:-translate-y-2 hover:scale-[1.03] hover:brightness-105 hover:shadow-[0_30px_58px_-14px_rgba(201,149,61,0.5),0_0_28px_-2px_rgba(233,200,119,0.55)]">
+              <div className="group flex h-full flex-col overflow-hidden rounded-3xl border border-gold/25 bg-white/80 p-3 shadow-[0_22px_60px_-34px_rgba(120,90,30,0.6)] backdrop-blur-sm transition-[transform,box-shadow,filter] duration-[350ms] ease-[cubic-bezier(.22,1,.36,1)] will-change-transform hover:-translate-y-2 hover:scale-[1.03] hover:brightness-105 hover:shadow-[0_30px_58px_-14px_rgba(201,149,61,0.5),0_0_28px_-2px_rgba(233,200,119,0.55)]">
                 <Placeholder
                   file={s.file}
                   src={`/images/${s.file}`}
                   label={s.title}
-                  ratio="4 / 3"
-                  rounded="rounded-none"
+                  ratio="3 / 2"
+                  rounded="rounded-2xl"
+                  className="border border-gold/40 ring-1 ring-inset ring-gold-soft/30"
                   imgClassName="object-cover transition-transform duration-[750ms] ease-[cubic-bezier(.22,1,.36,1)] group-hover:scale-[1.09]"
                 />
-                <div className="flex flex-1 flex-col p-6">
+                <div className="flex flex-1 flex-col px-3 pb-3 pt-5">
                   <h3 className="font-serif text-lg font-semibold text-ink">{s.title}</h3>
-                  <p className="mt-3 flex-1 text-[13px] leading-relaxed text-ink-soft/80">{s.desc}</p>
+                  <p className="mt-3 flex-1 text-[14.5px] leading-relaxed text-ink-soft/85">{s.desc}</p>
                   <a href="#" className="mt-5 inline-flex items-center gap-1.5 text-[12px] font-bold tracking-nav text-gold transition-colors hover:text-gold-bright">
                     LEARN MORE <Plus className="h-3.5 w-3.5" />
                   </a>

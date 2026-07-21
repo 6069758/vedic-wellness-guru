@@ -32,16 +32,21 @@ export default function TrustedBy() {
             <h2 className="font-serif text-[clamp(2.6rem,6vw,4.4rem)] font-bold tracking-wide text-cream drop-shadow-[0_2px_6px_rgba(0,0,0,0.5)]">
               Trusted By
             </h2>
-            <p className="mx-auto mt-5 max-w-[520px] text-[14px] leading-relaxed text-cream/90 sm:text-[15px]">
+            <div className="mx-auto mt-4 flex w-fit items-center justify-center gap-3 text-gold-soft">
+              <span className="h-px w-16 bg-gradient-to-r from-transparent to-gold-soft sm:w-24" />
+              <span className="text-sm">&#10022;</span>
+              <span className="h-px w-16 bg-gradient-to-l from-transparent to-gold-soft sm:w-24" />
+            </div>
+            <p className="mx-auto mt-6 max-w-[540px] text-[16px] leading-relaxed text-cream/90 sm:text-[17px]">
               Trusted advisor to founders, business owners &amp; professionals
               associated with some of India&rsquo;s most respected prominent brands
             </p>
-            <div className="mx-auto my-4 flex items-center justify-center gap-3 text-gold-soft">
+            <div className="mx-auto my-5 flex items-center justify-center gap-3 text-gold-soft">
               <span className="h-px w-16 bg-gold/40" />
               <span className="text-xs">&#10022;</span>
               <span className="h-px w-16 bg-gold/40" />
             </div>
-            <p className="mx-auto max-w-[520px] text-[14px] leading-relaxed text-cream/90 sm:text-[15px]">
+            <p className="mx-auto max-w-[540px] text-[16px] leading-relaxed text-cream/90 sm:text-[17px]">
               His work remains deeply personal &amp; confidential, built on trust
               developed over years of consistent guidance and accurate insights
             </p>

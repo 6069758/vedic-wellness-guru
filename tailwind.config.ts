@@ -21,7 +21,7 @@ const config: Config = {
       },
       fontFamily: {
         // Cinzel headings + Lato body + Caveat handwriting + Playfair italic accents
-        serif: ["var(--font-cinzel)", "Cinzel", "Georgia", "serif"],
+        serif: ["var(--font-playfair)", "Playfair Display", "Georgia", "serif"],
         sans: ["var(--font-lato)", "Lato", "Helvetica", "Arial", "sans-serif"],
         accent: ["var(--font-playfair)", "Playfair Display", "Georgia", "serif"],
         hand: ["var(--font-caveat)", "Caveat", "cursive"],
