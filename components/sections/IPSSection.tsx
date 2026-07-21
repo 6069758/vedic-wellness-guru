@@ -49,12 +49,15 @@ export default function IPSSection() {
           </div>
 
           {/* elegant dark glass info panel */}
-          <div className="ips-panel mt-7 max-w-[540px] rounded-2xl border border-gold/20 bg-[#161008]/72 px-8 py-7 text-cream/90 shadow-[0_28px_70px_-30px_rgba(0,0,0,0.75)] backdrop-blur-md will-change-transform">
-            <p className="ips-para text-[15px] leading-relaxed sm:text-base">
+          <div
+            className="ips-panel mt-7 max-w-[500px] rounded-2xl border border-gold/25 px-8 py-8 text-cream shadow-[0_28px_70px_-28px_rgba(0,0,0,0.8)] backdrop-blur-md will-change-transform"
+            style={{ backgroundColor: "rgba(18,12,4,0.8)" }}
+          >
+            <p className="ips-para text-[16px] leading-relaxed text-cream/95 sm:text-[17px]">
               A practical timing method developed through years of observation
               and real-life event patterns.
             </p>
-            <p className="ips-para mt-4 text-[15px] leading-relaxed sm:text-base">
+            <p className="ips-para mt-5 text-[16px] leading-relaxed text-cream/95 sm:text-[17px]">
               It helps understand the direction of a situation by reading the
               moment in an instant through the environment and the signals around
               you before making an important decision or predicting future

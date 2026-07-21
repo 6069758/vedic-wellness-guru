@@ -68,16 +68,17 @@ export default function Hero() {
         {/* Glossy diagonal glass sheen — sweeps once on load */}
         <div className="hero-glass" aria-hidden />
 
-        {/* Handwritten signature (Gincu) — centred over the vest, exactly as the
-            reference image: two lines, "Astro" directly under "Shree Gaurav",
-            no rotation, no stretch. */}
-        <div className="hero-name pointer-events-none absolute bottom-[14%] left-[4%] w-[42%] text-center leading-[1.0]">
-          <span className="block font-sign text-5xl text-cream drop-shadow-[0_2px_12px_rgba(0,0,0,0.75)] sm:text-[62px]">
-            Shree Gaurav
-          </span>
-          <span className="mt-1 block font-sign text-5xl text-cream drop-shadow-[0_2px_12px_rgba(0,0,0,0.75)] sm:text-[62px]">
-            Astro
-          </span>
+        {/* Handwritten signature — the original PNG (exact two-line layout,
+            "Astro" centred below "Shree Gaurav"). Written on left → right. */}
+        <div className="hero-name pointer-events-none absolute bottom-[12%] left-[3%] w-[40%] max-w-[420px]">
+          <Image
+            src="/images/signature.png"
+            alt="Shree Gaurav Astro"
+            width={831}
+            height={433}
+            priority
+            className="h-auto w-full drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]"
+          />
         </div>
 
         {/* Copy card (right) */}
@@ -85,10 +86,10 @@ export default function Hero() {
           <div className="hidden lg:block" />
           <div className="flex items-center justify-end px-5 sm:px-8 lg:pr-12">
             <div
-              className="hero-copy w-full max-w-[520px] rounded-[28px] border border-[#e0b95f]/30 p-6 text-center shadow-[0_40px_100px_-40px_rgba(0,0,0,0.85)] backdrop-blur-md sm:p-8 lg:p-9"
+              className="hero-copy w-full max-w-[460px] rounded-[28px] border border-[#e0b95f]/30 p-6 text-center shadow-[0_40px_100px_-40px_rgba(0,0,0,0.85)] backdrop-blur-md sm:p-8 lg:p-9"
               style={{
                 background:
-                  "linear-gradient(180deg, rgba(46,31,16,0.56) 0%, rgba(34,22,11,0.54) 100%)",
+                  "linear-gradient(180deg, rgba(46,31,16,0.44) 0%, rgba(34,22,11,0.42) 100%)",
               }}
             >
               <h1 className="hero-title font-serif text-cream">

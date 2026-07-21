@@ -1,5 +1,4 @@
 import { gsap } from "gsap";
-import SplitType from "split-type";
 
 /**
  * HERO load sequence (Slide 1). Autoplays on mount — a normal GSAP timeline,
@@ -20,19 +19,12 @@ import SplitType from "split-type";
 export function buildHeroTimeline(scope: HTMLElement) {
   const q = gsap.utils.selector(scope);
 
-  // initial states
-  // background waits ABOVE and drops straight down into place; glass card waits
-  // to the RIGHT and slides in — both fading in (exactly as requested).
-  // split the signature into characters so it can "write" itself in
-  const nameEl = q(".hero-name")[0] as HTMLElement;
-  const nameSplit = nameEl ? new SplitType(nameEl, { types: "chars" }) : null;
-  const nameChars = nameSplit?.chars ?? [];
-
+  // initial states — bg drops from top, glass card slides from the right
   gsap.set(q(".hero-bg"), { opacity: 0, yPercent: -26, scale: 1 });
   gsap.set(q(".hero-glow"), { opacity: 0 });
   gsap.set(q(".hero-glass"), { opacity: 0, xPercent: -120 });
-  gsap.set(q(".hero-name"), { opacity: 1 });
-  gsap.set(nameChars, { opacity: 0, y: 8 });
+  // signature PNG "writes" itself in with a left → right reveal
+  gsap.set(q(".hero-name"), { opacity: 1, clipPath: "inset(0 100% 0 0)" });
   gsap.set(q(".hero-copy"), { opacity: 0, x: 170, scale: 0.98 });
   gsap.set(q(".reveal-inner"), { yPercent: 115 });
   gsap.set(q(".hero-body"), { opacity: 0, y: 22 });
@@ -60,10 +52,10 @@ export function buildHeroTimeline(scope: HTMLElement) {
   // nav drops in alongside
   tl.to(q(".nav-root"), { opacity: 1, y: 0, duration: 0.8 }, 0.4);
 
-  // signature "writes" itself in — character by character (handwriting feel)
+  // signature "writes" itself in — left → right reveal (handwriting feel)
   tl.to(
-    nameChars,
-    { opacity: 1, y: 0, duration: 0.04, stagger: 0.055, ease: "none" },
+    q(".hero-name"),
+    { clipPath: "inset(0 0% 0 0)", duration: 1.3, ease: "power2.inOut" },
     0.9
   );
 

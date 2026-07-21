@@ -30,10 +30,11 @@ export function buildCinematic(scope: HTMLElement, stageEl: HTMLElement) {
     scrollTrigger: {
       trigger: stageEl,
       start: "top top",
-      end: "+=220%",
-      scrub: 1,
+      end: "+=160%",
       pin: true,
       pinSpacing: true,
+      // play ONCE on enter; never reverse back to the hero on scroll up
+      toggleActions: "play none none none",
       anticipatePin: 1,
       invalidateOnRefresh: true,
     },

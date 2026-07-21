@@ -49,7 +49,7 @@ export default function ServicesScene() {
                 />
                 <div className="flex flex-1 flex-col px-3 pb-3 pt-5">
                   <h3 className="font-serif text-lg font-semibold text-ink">{s.title}</h3>
-                  <p className="mt-3 flex-1 text-[14.5px] leading-relaxed text-ink-soft/85">{s.desc}</p>
+                  <p className="mt-3 flex-1 text-[16px] leading-relaxed text-ink-soft/85">{s.desc}</p>
                   <a href="#" className="mt-5 inline-flex items-center gap-1.5 text-[12px] font-bold tracking-nav text-gold transition-colors hover:text-gold-bright">
                     LEARN MORE <Plus className="h-3.5 w-3.5" />
                   </a>
