@@ -30,10 +30,12 @@ export function buildCinematic(scope: HTMLElement, stageEl: HTMLElement) {
     scrollTrigger: {
       trigger: stageEl,
       start: "top top",
-      end: "+=220%",
-      scrub: 1,
+      end: "+=150%",
       pin: true,
       pinSpacing: true,
+      // play the Hero → Explore transition ONCE; never reverse back to the Hero.
+      // (Hero only shows again on a page reload.)
+      toggleActions: "play none none none",
       anticipatePin: 1,
       invalidateOnRefresh: true,
     },
