@@ -2,12 +2,14 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 /**
- * Hero → Explore Services — one pinned viewport, one continuous crossfade.
+ * Hero → Explore Services — one pinned viewport, ONE-WAY scroll transition.
  *
  * Hero (front) and Explore (behind) are stacked inside the SAME pinned stage.
- * The hero dissolves to reveal Explore while the cards choreograph in. Explore
- * lives only here — no duplicate section, no pin-gap blank. When the timeline
- * finishes the pin releases straight into the next section.
+ * On load the timeline sits at progress 0 → the Hero is fully visible. As the
+ * user scrolls DOWN the Hero crossfades into Explore and the cards choreograph
+ * in. Scrolling back UP does NOT reverse — the timeline is clamped to the
+ * furthest point reached, so once you're in Explore the Hero never returns
+ * (it only reappears on a page reload).
  */
 export function buildCinematic(scope: HTMLElement, stageEl: HTMLElement) {
   const q = gsap.utils.selector(scope);
@@ -26,20 +28,8 @@ export function buildCinematic(scope: HTMLElement, stageEl: HTMLElement) {
   gsap.set(card3, { yPercent: 260 });
   gsap.set([card1, card4], { opacity: 0, scale: 0.82 });
 
-  const tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: stageEl,
-      start: "top top",
-      end: "+=150%",
-      pin: true,
-      pinSpacing: true,
-      // play the Hero → Explore transition ONCE; never reverse back to the Hero.
-      // (Hero only shows again on a page reload.)
-      toggleActions: "play none none none",
-      anticipatePin: 1,
-      invalidateOnRefresh: true,
-    },
-  });
+  // paused timeline — driven manually (one-way) by the ScrollTrigger below
+  const tl = gsap.timeline({ paused: true });
 
   // true crossfade — hero fades out while Explore fades in at the EXACT same time
   tl.to(sceneServices, { opacity: 1, duration: 1, ease: "power1.inOut" }, 0);
@@ -50,8 +40,25 @@ export function buildCinematic(scope: HTMLElement, stageEl: HTMLElement) {
   // cards: 2 from top + 3 from bottom converge, then 1 & 4 pop in
   tl.to([card2, card3], { yPercent: 0, duration: 1.2, ease: "power3.out" }, 1.1);
   tl.to([card1, card4], { opacity: 1, scale: 1, duration: 0.6, ease: "power2.out" }, 1.95);
-
   tl.to({}, { duration: 0.5 }, 2.45);
+
+  // ONE-WAY driver: advance with forward scroll, never rewind on scroll-up
+  let maxProgress = 0;
+  ScrollTrigger.create({
+    trigger: stageEl,
+    start: "top top",
+    end: "+=200%",
+    pin: true,
+    pinSpacing: true,
+    anticipatePin: 1,
+    invalidateOnRefresh: true,
+    onUpdate: (self) => {
+      if (self.progress > maxProgress) {
+        maxProgress = self.progress;
+        tl.progress(maxProgress);
+      }
+    },
+  });
 
   ScrollTrigger.refresh();
   return tl;
