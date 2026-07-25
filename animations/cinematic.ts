@@ -30,19 +30,18 @@ export function buildCinematic(scope: HTMLElement, stageEl: HTMLElement) {
     scrollTrigger: {
       trigger: stageEl,
       start: "top top",
-      end: "+=160%",
+      end: "+=220%",
+      scrub: 1,
       pin: true,
       pinSpacing: true,
-      // play ONCE on enter; never reverse back to the hero on scroll up
-      toggleActions: "play none none none",
       anticipatePin: 1,
       invalidateOnRefresh: true,
     },
   });
 
-  // crossfade — hero dissolves while Explore rises (both visible mid-way)
+  // true crossfade — hero fades out while Explore fades in at the EXACT same time
   tl.to(sceneServices, { opacity: 1, duration: 1, ease: "power1.inOut" }, 0);
-  tl.to(sceneHero, { opacity: 0, duration: 1, ease: "power1.inOut" }, 0.05);
+  tl.to(sceneHero, { opacity: 0, duration: 1, ease: "power1.inOut" }, 0);
   tl.to(q(".hero-copy"), { yPercent: -16, duration: 1, ease: "power1.in" }, 0);
   tl.to(heading, { opacity: 1, y: 0, duration: 0.55, ease: "power2.out" }, 0.7);
 

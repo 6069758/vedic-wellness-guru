@@ -29,9 +29,12 @@ export default function ExperienceGlance() {
             {STATS.map((s) => (
               <div key={s.label} data-reveal-item className="flex flex-col items-center text-center">
                 <div className="relative flex h-[106px] w-[106px] items-center justify-center rounded-[24px] border border-gold-soft/50 bg-gradient-to-b from-gold-soft to-gold shadow-[0_0_40px_-8px_rgba(200,145,46,0.85),inset_0_1px_2px_rgba(255,245,210,0.6)]">
-                  <span className="font-serif text-[2.1rem] font-bold text-ink">
-                    {s.count}
-                    {s.suffix}
+                  <span
+                    className="font-serif text-[2.1rem] font-bold text-ink"
+                    data-count={s.count}
+                    data-suffix={s.suffix}
+                  >
+                    0{s.suffix}
                   </span>
                 </div>
                 <span className="mt-4 text-[11px] font-semibold uppercase tracking-nav text-cream/70">
