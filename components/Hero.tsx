@@ -22,7 +22,7 @@ export default function Hero() {
     <div className="scene-hero absolute inset-0 z-20 h-full w-full bg-cream p-2 sm:p-3">
       {/* Curved frame */}
       <div className="relative h-full w-full overflow-hidden rounded-[26px] bg-[#241708] shadow-[0_30px_90px_-45px_rgba(80,55,15,0.6)]">
-        {/* Provided background image — astrologer slightly lower & enlarged */}
+        {/* Provided background image (original scale & position) */}
         <div className="hero-bg absolute inset-0 will-change-transform">
           <Image
             src="/images/guru-golden.png"
@@ -30,19 +30,19 @@ export default function Hero() {
             fill
             priority
             sizes="100vw"
-            className="scale-[1.06] object-cover object-[center_22%]"
+            className="object-cover object-center"
           />
         </div>
 
-        {/* Right-side scrim (keeps the astrologer vivid, card legible) */}
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-l from-black/60 via-black/12 to-transparent" />
+        {/* Right-side scrim only (keeps the astrologer vivid, card legible) */}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-l from-black/70 via-black/15 to-transparent" />
 
-        {/* Subtle ambient glow + depth vignette (matches the reference) */}
+        {/* Subtle ambient glow */}
         <div
           className="hero-glow pointer-events-none absolute inset-0"
           style={{
             background:
-              "radial-gradient(45% 55% at 32% 44%, rgba(255,205,130,0.14), transparent 72%), radial-gradient(120% 120% at 50% 50%, transparent 55%, rgba(20,12,4,0.35) 100%)",
+              "radial-gradient(40% 50% at 30% 42%, rgba(255,200,120,0.10), transparent 70%)",
           }}
         />
 
@@ -70,7 +70,7 @@ export default function Hero() {
 
         {/* Handwritten signature — the original PNG (exact two-line layout,
             "Astro" centred below "Shree Gaurav"). Written on left → right. */}
-        <div className="hero-name pointer-events-none absolute bottom-[14%] left-[3%] w-[34%] max-w-[360px]">
+        <div className="hero-name pointer-events-none absolute bottom-[12%] left-[3%] w-[40%] max-w-[420px]">
           <Image
             src="/images/signature.png"
             alt="Shree Gaurav Astro"
@@ -81,36 +81,36 @@ export default function Hero() {
           />
         </div>
 
-        {/* Copy card (right) — larger, premium dark glass, vertically centred */}
-        <div className="relative z-30 grid h-full grid-cols-1 items-center lg:grid-cols-[48%_52%]">
+        {/* Copy card (right) — ORIGINAL position & size; only polished */}
+        <div className="relative z-30 grid h-full grid-cols-1 items-center lg:grid-cols-[52%_48%]">
           <div className="hidden lg:block" />
-          <div className="flex items-center justify-end px-5 sm:px-8 lg:pr-14">
+          <div className="flex items-center justify-end px-5 sm:px-8 lg:pr-12">
             <div
-              className="hero-copy w-full max-w-[580px] rounded-[32px] border border-[#e6c072]/35 p-8 text-center shadow-[0_45px_120px_-40px_rgba(0,0,0,0.9)] backdrop-blur-lg sm:p-10 lg:p-12"
+              className="hero-copy w-full max-w-[460px] rounded-[28px] border border-[#e0b95f]/30 p-7 text-center shadow-[0_40px_100px_-40px_rgba(0,0,0,0.85)] backdrop-blur-md sm:p-8 lg:p-9"
               style={{
                 background:
-                  "linear-gradient(180deg, rgba(44,29,14,0.66) 0%, rgba(30,19,9,0.62) 100%)",
+                  "linear-gradient(180deg, rgba(46,31,16,0.36) 0%, rgba(34,22,11,0.34) 100%)",
               }}
             >
               <h1 className="hero-title font-serif text-cream">
                 <span className="reveal-line block overflow-hidden">
-                  <span className="reveal-inner block text-[clamp(1.8rem,3.4vw,3.05rem)] font-bold leading-[1.05] tracking-tight">
+                  <span className="reveal-inner block text-[clamp(1.5rem,2.9vw,2.6rem)] font-bold leading-[1.1] tracking-tight">
                     Three Decades of Consultancy
                   </span>
                 </span>
                 <span className="reveal-line mt-1 block overflow-hidden">
-                  <span className="reveal-inner block font-accent text-[clamp(1.1rem,1.9vw,1.55rem)] font-medium italic text-gold-soft">
+                  <span className="reveal-inner block font-accent text-[clamp(1rem,1.7vw,1.4rem)] font-medium italic text-gold-soft">
                     in
                   </span>
                 </span>
                 <span className="reveal-line block overflow-hidden">
-                  <span className="reveal-inner block text-[clamp(1.5rem,2.9vw,2.55rem)] font-semibold leading-[1.08] tracking-tight text-gold-soft">
+                  <span className="reveal-inner block text-[clamp(1.3rem,2.4vw,2.2rem)] font-semibold leading-tight tracking-tight text-gold-soft">
                     Astrology-Vastu-Meditation
                   </span>
                 </span>
               </h1>
 
-              <p className="hero-body mx-auto mt-6 max-w-[600px] font-sans text-[15px] leading-relaxed text-cream/90 sm:text-[16.5px]">
+              <p className="hero-body mx-auto mt-5 max-w-[560px] font-sans text-[14.5px] leading-relaxed text-cream/90 sm:text-[15px]">
                 Decades of proven expertise, experience never-before Astrology -
                 Vastu consultations &amp; Meditation Sessions designed to solve
                 real-life challenges in career, relationships, finances and health.
@@ -118,13 +118,13 @@ export default function Hero() {
                 practical, result-oriented strategies.
               </p>
 
-              <p className="hero-tagline mt-6 font-accent text-[clamp(1.05rem,1.6vw,1.4rem)] italic leading-snug text-gold-soft">
+              <p className="hero-tagline mt-5 font-accent text-[clamp(0.95rem,1.4vw,1.25rem)] italic leading-snug text-gold-soft">
                 “When the right decision matters, guesswork is not an option.”
               </p>
 
               <a
                 href="#"
-                className="hero-cta btn-gold-glow mt-8 inline-flex items-center rounded-2xl px-10 py-4 font-sans text-[15px] font-semibold tracking-wide ring-1 ring-[#F3D488]/60"
+                className="hero-cta btn-gold-glow mt-7 inline-flex items-center rounded-full px-9 py-3.5 font-sans text-[13.5px] font-semibold tracking-wide"
               >
                 Request Personal Consultation
               </a>
