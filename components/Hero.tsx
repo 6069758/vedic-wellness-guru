@@ -74,8 +74,8 @@ export default function Hero() {
           <Image
             src="/images/signature.png"
             alt="Shree Gaurav Astro"
-            width={831}
-            height={433}
+            width={804}
+            height={365}
             priority
             className="h-auto w-full drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]"
           />

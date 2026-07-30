@@ -8,13 +8,13 @@
  */
 export default function IPSSection() {
   return (
-    <section className="ips-stage relative flex h-screen w-full items-center justify-center overflow-hidden bg-cream px-4 py-6 lg:px-8">
-      <div className="ips-frame relative h-[74vh] w-full max-w-[1560px] overflow-hidden rounded-[34px] border border-gold/20 shadow-[0_30px_90px_-45px_rgba(120,90,30,0.55)]">
-        {/* background layer (subtle zoom-out) — cropped slightly below the last button */}
+    <section className="ips-stage relative flex h-screen w-full items-center justify-center overflow-hidden bg-[#0d0a06] px-4 py-6 lg:px-8">
+      <div className="ips-frame relative h-[74vh] w-full max-w-[1560px] overflow-hidden rounded-[34px] border border-gold/20 bg-[#120c04] shadow-[0_30px_90px_-45px_rgba(120,90,30,0.55)]">
+        {/* background layer (fades in + subtle zoom-out) — dark fallback so there is never a white flash */}
         <div
           className="ips-bg absolute inset-0 will-change-transform"
           style={{
-            backgroundColor: "#efe7d8",
+            backgroundColor: "#120c04",
             backgroundImage: "url('/images/ips-bg.png')",
             backgroundSize: "cover",
             backgroundPosition: "center 28%",
@@ -32,8 +32,8 @@ export default function IPSSection() {
           }}
         />
 
-        {/* left light wash for legibility */}
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#f3ecdd]/85 via-[#f3ecdd]/25 to-transparent" />
+        {/* left light wash for legibility (fades in with the background) */}
+        <div className="ips-wash pointer-events-none absolute inset-0 bg-gradient-to-r from-[#f3ecdd]/85 via-[#f3ecdd]/25 to-transparent" />
 
         {/* content */}
         <div className="absolute inset-0 z-10 flex w-full flex-col justify-center px-6 py-8 sm:px-12 lg:w-[58%] lg:py-10">
