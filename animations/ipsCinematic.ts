@@ -27,9 +27,10 @@ export function buildIpsCinematic(scope: HTMLElement, stageEl: HTMLElement) {
   const split = new SplitType(paras, { types: "lines", lineClass: "ips-line" });
   const lines = split.lines ?? [];
 
-  // initial states — background hidden (dark backdrop behind → no white flash)
-  gsap.set(q(".ips-bg"), { opacity: 0, scale: 1.1 });
-  gsap.set(q(".ips-wash"), { opacity: 0 });
+  // background is ALWAYS visible (cream theme behind → never a white/black flash);
+  // it "establishes" via a subtle zoom-out rather than a fade.
+  gsap.set(q(".ips-bg"), { opacity: 1, scale: 1.1 });
+  gsap.set(q(".ips-wash"), { opacity: 1 });
   gsap.set(q(".ips-glass"), { opacity: 0, xPercent: -80 });
   gsap.set(q(".ips-title"), { opacity: 0, y: 30 });
   gsap.set(q(".ips-subtitle"), { opacity: 0, y: 24 });
@@ -42,9 +43,8 @@ export function buildIpsCinematic(scope: HTMLElement, stageEl: HTMLElement) {
   const tl = gsap.timeline({ paused: true, defaults: { ease: "power3.out" } });
 
   tl
-    // 1 · background crossfades up + zooms out, and establishes ALONE first
-    .to(q(".ips-bg"), { opacity: 1, scale: 1, duration: 1.6, ease: "power2.out" }, 0.0)
-    .to(q(".ips-wash"), { opacity: 1, duration: 1.4, ease: "power2.out" }, 0.2)
+    // 1 · background establishes ALONE first — a slow zoom-out settle
+    .to(q(".ips-bg"), { scale: 1, duration: 1.6, ease: "power2.out" }, 0.0)
     // 2 · diagonal glass overlay sweeps into place (as the bg finishes settling)
     .to(q(".ips-glass"), { opacity: 1, xPercent: 0, duration: 1.1, ease: "power2.inOut" }, 1.45)
     // 3 · content unit — one overlapping cascade
