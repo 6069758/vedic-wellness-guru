@@ -70,7 +70,7 @@ export default function Hero() {
 
         {/* Handwritten signature — the original PNG (exact two-line layout,
             "Astro" centred below "Shree Gaurav"). Written on left → right. */}
-        <div className="hero-name pointer-events-none absolute bottom-[12%] left-[3%] w-[40%] max-w-[420px]">
+        <div className="hero-name pointer-events-none absolute bottom-[16%] left-[4%] w-[36%] max-w-[400px] -rotate-[30deg]">
           <Image
             src="/images/signature.png"
             alt="Shree Gaurav Astro"
