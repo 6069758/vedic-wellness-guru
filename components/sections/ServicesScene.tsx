@@ -45,7 +45,7 @@ export default function ServicesScene() {
                   ratio="3 / 2"
                   rounded="rounded-2xl"
                   className="border border-gold/40 ring-1 ring-inset ring-gold-soft/30"
-                  imgClassName="object-cover transition-transform duration-[750ms] ease-[cubic-bezier(.22,1,.36,1)] group-hover:scale-[1.09]"
+                  imgClassName="object-cover transition-transform duration-[700ms] ease-[cubic-bezier(.22,1,.36,1)] group-hover:scale-[1.12]"
                 />
                 <div className="flex flex-1 flex-col px-3 pb-3 pt-5">
                   <h3 className="font-serif text-lg font-semibold text-ink">{s.title}</h3>
