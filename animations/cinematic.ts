@@ -35,6 +35,8 @@ export function buildCinematic(scope: HTMLElement, stageEl: HTMLElement) {
   tl.to(sceneServices, { opacity: 1, duration: 1, ease: "power1.inOut" }, 0);
   tl.to(sceneHero, { opacity: 0, duration: 1, ease: "power1.inOut" }, 0);
   tl.to(q(".hero-copy"), { yPercent: -16, duration: 1, ease: "power1.in" }, 0);
+  // once faded, the hero must stop capturing the mouse so the cards are hoverable
+  tl.set(sceneHero, { pointerEvents: "none" }, 0.5);
   tl.to(heading, { opacity: 1, y: 0, duration: 0.55, ease: "power2.out" }, 0.7);
 
   // cards: 2 from top + 3 from bottom converge, then 1 & 4 pop in
