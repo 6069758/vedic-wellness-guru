@@ -40,16 +40,16 @@ export default function ServicesScene() {
                   file={s.file}
                   src={`/images/${s.file}`}
                   label={s.title}
-                  ratio="3 / 2"
+                  ratio="4 / 3"
                   rounded="rounded-2xl"
                   className="border border-gold/40 ring-1 ring-inset ring-gold-soft/30"
                   imgClassName="object-cover transition-transform duration-[700ms] ease-[cubic-bezier(.22,1,.36,1)] group-hover:scale-[1.12]"
                 />
-                {/* Text area with generous padding */}
-                <div className="flex flex-1 flex-col px-4 pb-5 pt-6 sm:px-5">
-                  <h3 className="font-serif text-lg font-semibold leading-snug text-ink">{s.title}</h3>
-                  <p className="mt-4 flex-1 text-[15px] leading-[1.75] text-ink-soft/85">{s.desc}</p>
-                  <a href="#" className="mt-6 inline-flex items-center gap-1.5 text-[12px] font-bold tracking-nav text-gold transition-colors hover:text-gold-bright">
+                {/* Text area — generous vertical breathing room */}
+                <div className="flex flex-1 flex-col px-5 pb-6 pt-7">
+                  <h3 className="font-serif text-[1.05rem] font-semibold leading-normal text-ink">{s.title}</h3>
+                  <p className="mt-5 flex-1 text-[14.5px] leading-[1.8] text-ink-soft/85">{s.desc}</p>
+                  <a href="#" className="mt-7 inline-flex items-center gap-1.5 text-[12px] font-bold tracking-nav text-gold transition-colors hover:text-gold-bright">
                     LEARN MORE <Plus className="h-3.5 w-3.5" />
                   </a>
                 </div>
