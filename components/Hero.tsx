@@ -81,10 +81,9 @@ export default function Hero() {
           />
         </div>
 
-        {/* Copy card (right) — ORIGINAL position & size; only polished */}
-        <div className="relative z-30 grid h-full grid-cols-1 items-center lg:grid-cols-[42%_58%]">
-          <div className="hidden lg:block" />
-          <div className="flex items-center justify-end px-5 sm:px-8 lg:pr-12">
+        {/* Copy card (left) */}
+        <div className="relative z-30 grid h-full grid-cols-1 items-center lg:grid-cols-[58%_42%]">
+          <div className="flex items-center justify-start px-5 sm:px-8 lg:pl-12">
             <div
               className="hero-copy w-full max-w-[660px] rounded-[28px] border border-[#e0b95f]/30 px-10 py-9 text-center shadow-[0_40px_100px_-40px_rgba(0,0,0,0.85)] backdrop-blur-md sm:px-12 sm:py-10 lg:px-14"
               style={{
@@ -130,6 +129,7 @@ export default function Hero() {
               </a>
             </div>
           </div>
+          <div className="hidden lg:block" />
         </div>
 
         <div className="scroll-cue absolute bottom-4 left-1/2 z-30 flex -translate-x-1/2 flex-col items-center gap-1.5 text-cream/70">
