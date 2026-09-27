@@ -226,7 +226,20 @@ html.lenis body {
   width: max-content;
 }
 
-/* Thin luxury scrollbar */
+/* ===== Scroll performance: prevent GPU layer explosion on pinned sections ===== */
+/* Only promote compositing on elements actively animating */
+.scene-hero,
+.scene-services {
+  contain: layout style;
+}
+
+/* Ensure service scene always fills full viewport width */
+.scene-services {
+  width: 100vw !important;
+  left: 0 !important;
+}
+
+/* ===== Thin luxury scrollbar ===== */
 ::-webkit-scrollbar {
   width: 9px;
 }
